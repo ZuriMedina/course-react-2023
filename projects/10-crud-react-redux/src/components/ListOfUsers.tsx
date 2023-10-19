@@ -9,34 +9,13 @@ import {
   Badge,
   Title,
 } from '@tremor/react';
-
-const users: {
-  id: string;
-  name: string;
-  email: string;
-  github: string;
-}[] = [
-  {
-    id: '1',
-    name: 'Zuri',
-    email: 'zuri@gmail.com',
-    github: '@zuri',
-  },
-  {
-    id: '2',
-    name: 'Pepe',
-    email: 'pepe@gmail.com',
-    github: '@pepe',
-  },
-  {
-    id: '3',
-    name: 'María',
-    email: 'maria@gmail.com',
-    github: '@maria',
-  },
-];
+import { useAppSelector } from '../hooks/store';
+import { useUsersActions } from '../hooks/useUserActions';
 
 export function ListOfUsers() {
+  const users = useAppSelector((state) => state.users);
+  const { removeUser } = useUsersActions();
+
   return (
     <Card>
       <Title>
@@ -82,8 +61,9 @@ export function ListOfUsers() {
                     />
                   </svg>
                 </button>
-                <button>
+                <button onClick={() => removeUser(item.id)}>
                   <svg
+                    aria-label="Remove Element"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"

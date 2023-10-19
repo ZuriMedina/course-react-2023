@@ -23,7 +23,7 @@ export default {
   plugins: [],
 };
 ```
-- Añadir directivas Tailwind
+- Añadir directivas Tailwind en **index.css**
 ```css
 @tailwind base;
 @tailwind components;

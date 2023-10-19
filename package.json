@@ -16,6 +16,7 @@
     "extends": "./node_modules/standard/eslintrc.json"
   },
   "dependencies": {
-    "just-debounce-it": "3.2.0"
+    "just-debounce-it": "3.2.0",
+    "sonner": "^1.0.3"
   }
 }
